@@ -22,6 +22,7 @@ import {
 } from 'lucide-react'
 import { SITE, faqs } from '@/lib/site'
 import ContactForm from '@/components/contact-form'
+import LeadWizardPopup, { openLeadWizard } from '@/components/lead-wizard-popup'
 import HeroSlider from '@/components/hero-slider'
 import CertificateSlider from '@/components/certificate-slider'
 import ExpertImage from '@/components/expert-image'
@@ -99,6 +100,7 @@ export default function HomePage() {
 
   return (
     <main className="overflow-hidden bg-background text-foreground">
+      <LeadWizardPopup />
       {/* ── 1. Hero: full-background slider ── */}
       <section id="home" className="hero-full" aria-labelledby="hero-heading">
         <HeroSlider />
@@ -108,7 +110,7 @@ export default function HomePage() {
           <WordsStagger as="h1" id="hero-heading" className="display mt-5 text-balance" stagger={0.05}>Best Way to <TextLoop words={['Grow', 'Start', 'Scale']} /> <span className="text-primary">Your Business</span></WordsStagger>
           <p className="lead mt-6 max-w-xl">From business registration and GST to taxation, licensing and ongoing compliance — reliable professional support to help you start, manage and grow with confidence.</p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <Link className="button button-primary" href="/contact">Free Consultation <ArrowRight className="h-4 w-4" /></Link>
+            <button className="button button-primary" onClick={openLeadWizard}>Free Consultation <ArrowRight className="h-4 w-4" /></button>
             <Link className="button button-outline-light" href="/services">Explore Services</Link>
           </div>
           <div className="hero-full-cards">
