@@ -7,6 +7,7 @@ import './globals.css'
 import SiteHeader from '@/components/site-header'
 import SiteFooter from '@/components/site-footer'
 import FloatButtons from '@/components/float-buttons'
+import CustomCursor from '@/components/custom-cursor'
 import RevealInit from '@/components/reveal-init'
 
 export const sans = Plus_Jakarta_Sans({
@@ -124,6 +125,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div id="main-content">{children}</div>
           <SiteFooter />
           <FloatButtons />
+          <CustomCursor />
         </div>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
