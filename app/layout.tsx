@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Fraunces, JetBrains_Mono, Plus_Jakarta_Sans } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 import './globals.css'
@@ -10,25 +10,11 @@ import FloatButtons from '@/components/float-buttons'
 import CustomCursor from '@/components/custom-cursor'
 import RevealInit from '@/components/reveal-init'
 
-export const sans = Plus_Jakarta_Sans({
+export const sans = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
-  weight: ['400', '500', '600', '700', '800'],
-})
-
-export const display = Fraunces({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-display',
-  weight: ['400', '500', '600', '700'],
-})
-
-export const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-mono',
-  weight: ['500', '700'],
+  style: ['normal', 'italic'],
 })
 
 const SITE_URL = 'https://hudaconsultancy.com'
@@ -98,7 +84,7 @@ const schema = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable} bg-background`}>
+    <html lang="en" className={`${sans.variable} bg-background`}>
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <noscript><style>{`.reveal{opacity:1 !important;transform:none !important}`}</style></noscript>

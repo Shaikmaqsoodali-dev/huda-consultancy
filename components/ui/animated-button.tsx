@@ -67,7 +67,7 @@ export function AnimatedButton({
   rounded = 'full',
   asChild = false,
   hideAnimations = false,
-  shimmerColor = '#8f9bff',
+  shimmerColor = '#fff3b8',
   shimmerSize = '0.15em',
   shimmerDuration = '3s',
   borderRadius,
@@ -84,12 +84,12 @@ export function AnimatedButton({
       ? 'transparent'
       : variant === 'light'
         ? '#ffffff'
-        : 'linear-gradient(120deg, #2412f0 0%, #1500d8 60%, #0d0096 100%)')
-  const color = variant === 'light' ? '#1500d8' : variant === 'outline' ? 'currentColor' : '#ffffff'
+        : 'linear-gradient(120deg, #fed100 0%, #ffdb2e 60%, #ffc93c 100%)')
+  const color = variant === 'light' ? '#004c4c' : variant === 'outline' ? 'currentColor' : '#00403f'
   const animate = !hideAnimations
 
   const cls = cn(
-    'group/animated-btn relative inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden font-bold tracking-wide whitespace-nowrap transition-transform duration-200 outline-none select-none hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-white/70 disabled:pointer-events-none disabled:opacity-50',
+    'group/animated-btn relative inline-flex cursor-pointer items-center justify-center gap-2 overflow-hidden font-bold tracking-wide whitespace-nowrap transition-transform duration-200 outline-none select-none hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-[#00403f]/70 disabled:pointer-events-none disabled:opacity-50',
     SIZES[size],
     className,
   )
@@ -101,7 +101,7 @@ export function AnimatedButton({
     color,
     textTransform: uppercase ? 'uppercase' : undefined,
     border: variant === 'outline' ? '1.5px solid currentColor' : undefined,
-    boxShadow: glow && animate ? `0 12px 34px -8px rgba(21,0,216,.55), 0 0 0 1px rgba(255,255,255,.12) inset` : undefined,
+    boxShadow: glow && animate ? `0 12px 34px -8px rgba(0,76,76,.55), 0 0 0 1px rgba(255,255,255,.12) inset` : undefined,
   }
 
   const inner = (

@@ -21,14 +21,14 @@ export default function PageHero({ eyebrow, title, titleId, description, actions
     <section
       className={dark ? 'page-hero band-dark' : 'page-hero'}
       aria-labelledby={titleId}
-      style={dark ? { position: 'relative', overflow: 'hidden', background: '#0b1030' } : { position: 'relative', overflow: 'hidden' }}
+      style={dark ? { position: 'relative', overflow: 'hidden', background: '#004c4c' } : { position: 'relative', overflow: 'hidden' }}
     >
       <InteractiveGridBackground
         gridGap={28}
         dotSize={1.8}
         radius={280}
-        color={dark ? '#4c56b8' : '#aab2ff'}
-        highlightColor={dark ? '#ffffff' : '#1500d5'}
+        color={dark ? '#2f8f88' : '#e8dcae'}
+        highlightColor={dark ? '#ffffff' : '#004c4c'}
         className="absolute inset-0"
       />
       <div className="container relative z-10">

@@ -202,7 +202,7 @@ export default function CertificateSlider({
         </div>
       </div>
       <div className="mt-8 text-center">
-        <AnimatedButton asChild glow uppercase rounded="custom" borderRadius="100px" shimmerColor="#8f9bff" shimmerDuration="3s">
+        <AnimatedButton asChild glow uppercase rounded="custom" borderRadius="100px" shimmerColor="#fff3b8" shimmerDuration="3s">
           <Link href="/contact">Get yours done <ArrowRight className="h-4 w-4" /></Link>
         </AnimatedButton>
       </div>

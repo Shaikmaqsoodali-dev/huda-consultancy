@@ -136,7 +136,7 @@ export default function HomePage() {
           gridGap={34}
           dotSize={1.2}
           radius={220}
-          color="#4c56b8"
+          color="#2f8f88"
           highlightColor="#ffffff"
           className="absolute inset-0"
         />
@@ -314,19 +314,19 @@ export default function HomePage() {
       {/* ── 11. CTA banner (reference: Small Business Grow Fast) ── */}
       <section className="section-pad" aria-labelledby="cta-heading">
         <div className="container">
-          <div className="cta-banner" style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(120deg, #1a0fc4 0%, #0d0096 55%, #0b1030 130%)' }}>
+          <div className="cta-banner" style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(120deg, #fed100 0%, #ffdb2e 55%, #ffc93c 130%)' }}>
             <InteractiveGridBackground
               gridGap={28}
               dotSize={1.6}
               radius={260}
-              color="#8f9bff"
-              highlightColor="#ffffff"
+              color="#0e6e66"
+              highlightColor="#00403f"
               className="absolute inset-0"
             />
             <div className="relative z-10 flex w-full flex-wrap items-center justify-between gap-7">
               <div>
-                <WordsStagger as="h2" id="cta-heading" className="section-title text-white text-balance" stagger={0.04}>Small businesses <TextLoop words={['grow', 'scale']} /> fast with the right guidance.</WordsStagger>
-                <p className="mt-3 flex items-center gap-2 text-sm text-white/75"><CheckCircle2 className="h-4 w-4" /> Transparent pricing • Updates at every step</p>
+                <WordsStagger as="h2" id="cta-heading" className="section-title text-[#00403f] text-balance" stagger={0.04}>Small businesses <TextLoop words={['grow', 'scale']} /> fast with the right guidance.</WordsStagger>
+                <p className="mt-3 flex items-center gap-2 text-sm text-[#00403f]/75"><CheckCircle2 className="h-4 w-4" /> Transparent pricing • Updates at every step</p>
               </div>
               <div className="flex flex-wrap gap-4">
                 <Link className="button button-light" href="/contact">Get Started <ArrowRight className="h-4 w-4" /></Link>

@@ -19,12 +19,12 @@ const values = [
 export default function AboutPage() {
   return (
     <main className="bg-background text-foreground">
-      <section className="page-hero band-dark" aria-labelledby="about-title" style={{ position: 'relative', overflow: 'hidden', background: '#0b1030' }}>
+      <section className="page-hero band-dark" aria-labelledby="about-title" style={{ position: 'relative', overflow: 'hidden', background: '#004c4c' }}>
         <InteractiveGridBackground
           gridGap={28}
           dotSize={1.8}
           radius={280}
-          color="#4c56b8"
+          color="#2f8f88"
           highlightColor="#ffffff"
           className="absolute inset-0"
         />

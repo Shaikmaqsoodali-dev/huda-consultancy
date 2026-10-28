@@ -17,10 +17,12 @@ const links = [
 function Logo({ compact = false }: { compact?: boolean }) {
   return (
     <Link href="/" className={`flex items-center gap-3 ${compact ? 'scale-90 origin-left' : ''}`} aria-label="Huda Consultancy home">
-      <img src={logoUrl} alt="Huda Consultancy logo" width={44} height={44} className="h-11 w-11 rounded-xl object-contain shadow-sm ring-1 ring-border" />
+      <span className="logo-badge">
+        <img src={logoUrl} alt="Huda Consultancy logo" width={32} height={32} className="h-8 w-8 object-contain" />
+      </span>
       <span className="leading-none">
-        <span className="block font-display text-[19px] font-semibold tracking-[-0.02em] text-foreground">Huda Consultancy</span>
-        <span className="mt-1 block font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-muted-foreground">Hyderabad • India</span>
+        <span className="block font-display text-[21px] font-bold tracking-[-0.02em] text-foreground">Huda Consultancy</span>
+        <span className="mt-1.5 block text-[10px] font-bold uppercase tracking-[0.22em] text-primary">Hyderabad • India</span>
       </span>
     </Link>
   )
@@ -40,9 +42,6 @@ export default function SiteHeader() {
   }, [pathname])
 
   useEffect(() => {
-    function onResize() {
-      if (window.innerWidth >= 768) setMenuOpen(false)
-    }
     function onKey(e: KeyboardEvent) {
       if (e.key === 'Escape') {
         setMenuOpen(false)
@@ -53,11 +52,9 @@ export default function SiteHeader() {
       setScrolled(window.scrollY > 8)
     }
     onScroll()
-    window.addEventListener('resize', onResize)
     window.addEventListener('keydown', onKey)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
-      window.removeEventListener('resize', onResize)
       window.removeEventListener('keydown', onKey)
       window.removeEventListener('scroll', onScroll)
     }
@@ -73,10 +70,10 @@ export default function SiteHeader() {
   const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href))
 
   return (
-    <header className={`site-header sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl ${scrolled ? 'is-scrolled' : ''}`}>
-      <div className="container flex h-[76px] items-center justify-between">
+    <header className={`site-header sticky top-0 z-50 ${scrolled ? 'is-scrolled' : ''}`}>
+      <div className="container header-inner">
         <Logo />
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary navigation">
+        <nav className="hidden items-center gap-9 lg:flex" aria-label="Primary navigation">
           <Link href="/" className="nav-link" aria-current={pathname === '/' ? 'page' : undefined}>Home</Link>
           <Link href="/about" className="nav-link" aria-current={pathname === '/about' ? 'page' : undefined}>About</Link>
           <div className="relative" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
@@ -101,19 +98,28 @@ export default function SiteHeader() {
           <Link href="/process" className="nav-link" aria-current={pathname === '/process' ? 'page' : undefined}>Our approach</Link>
           <Link href="/contact" className="nav-link" aria-current={pathname === '/contact' ? 'page' : undefined}>Contact</Link>
         </nav>
-        <Link href="/contact" className="button button-primary hidden md:inline-flex">Let&apos;s talk <ArrowRight className="h-4 w-4" /></Link>
-        <button onClick={() => setMenuOpen(!menuOpen)} className="nav-toggle md:hidden" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
-          {menuOpen ? <X /> : <Menu />}
-        </button>
+        <div className="flex items-center gap-3">
+          <Link href="/contact" className="header-cta hidden sm:inline-flex">Let&apos;s talk <ArrowRight className="h-4 w-4" /></Link>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="nav-toggle" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
+            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
       {menuOpen && (
-        <nav className="mobile-menu md:hidden" aria-label="Mobile navigation">
+        <nav className="header-menu" aria-label="Menu">
           {links.map((l) => (
-            <Link key={l.href} href={l.href} onClick={() => setMenuOpen(false)} aria-current={isActive(l.href) ? 'page' : undefined}>
+            <Link key={l.href} href={l.href} onClick={() => setMenuOpen(false)} className="header-menu-link" aria-current={isActive(l.href) ? 'page' : undefined}>
               {l.label}
             </Link>
           ))}
-          <Link href="/contact" onClick={() => setMenuOpen(false)} className="button button-primary">Let&apos;s talk <ArrowRight className="h-4 w-4" /></Link>
+          <span className="header-menu-divider" aria-hidden="true" />
+          <p className="eyebrow px-3.5 pb-1 text-muted-foreground">Services</p>
+          {services.map((s) => (
+            <Link key={s.slug} href={`/services/${s.slug}`} onClick={() => setMenuOpen(false)} className="header-menu-link">
+              {s.title}
+            </Link>
+          ))}
+          <Link href="/contact" onClick={() => setMenuOpen(false)} className="header-cta mt-3 self-start sm:hidden">Let&apos;s talk <ArrowRight className="h-4 w-4" /></Link>
         </nav>
       )}
     </header>
