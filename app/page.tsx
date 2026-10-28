@@ -148,7 +148,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 3. Why us (reference: High Quality Idea + bars + counters) ── */}
+      {/* ── 3. Showcase (reference: Amazing Work Showcase) ── */}
+      <section className="section-pad section-tint reveal" aria-labelledby="work-heading">
+        <div className="container">
+          <div className="ref-head">
+            <div>
+              <p className="eyebrow text-primary">Our portfolio</p>
+              <h2 id="work-heading" className="section-title mt-4 text-balance">Amazing work, delivered on time</h2>
+            </div>
+            <Link href="/services" className="button button-primary">View all services <ArrowRight className="h-4 w-4" /></Link>
+          </div>
+          <div className="work-grid mt-12">
+            {showcase.map((w) => (
+              <Link key={w.title} href={w.href} className="work-tile group" aria-label={`${w.tag}: ${w.title}`}>
+                <img src={w.img} alt="" loading="lazy" />
+                <span className="work-overlay"><span className="work-chip"><w.icon className="h-5 w-5" /></span><span><span className="work-title">{w.tag}</span><span className="work-sub">{w.title}</span></span></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. Why us (reference: High Quality Idea + bars + counters) ── */}
       <section className="section-pad scroll-mt-24 reveal" aria-labelledby="why-heading">
         <div className="container why-grid">
           <div className="why-media">
@@ -178,27 +199,6 @@ export default function HomePage() {
                 <p className="counter-num">{num}</p>
                 <p className="counter-label">{label}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. Showcase (reference: Amazing Work Showcase) ── */}
-      <section className="section-pad section-tint reveal" aria-labelledby="work-heading">
-        <div className="container">
-          <div className="ref-head">
-            <div>
-              <p className="eyebrow text-primary">Our portfolio</p>
-              <h2 id="work-heading" className="section-title mt-4 text-balance">Amazing work, delivered on time</h2>
-            </div>
-            <Link href="/services" className="button button-primary">View all services <ArrowRight className="h-4 w-4" /></Link>
-          </div>
-          <div className="work-grid mt-12">
-            {showcase.map((w) => (
-              <Link key={w.title} href={w.href} className="work-tile group" aria-label={`${w.tag}: ${w.title}`}>
-                <img src={w.img} alt="" loading="lazy" />
-                <span className="work-overlay"><span className="work-chip"><w.icon className="h-5 w-5" /></span><span><span className="work-title">{w.tag}</span><span className="work-sub">{w.title}</span></span></span>
-              </Link>
             ))}
           </div>
         </div>
